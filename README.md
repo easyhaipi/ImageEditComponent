@@ -532,4 +532,5 @@
 获取临时文件。
 
 二、趣拍SDK的手动接入使用(http://docs.qupaicloud.com/119.html)
+
 跟着文档就可以搭建自己的应用服务
