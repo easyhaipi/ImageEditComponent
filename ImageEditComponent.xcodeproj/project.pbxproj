@@ -15,6 +15,14 @@
 		8A1CDC061DBDAC6E00CCA448 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC041DBDAC6E00CCA448 /* LaunchScreen.storyboard */; };
 		8A1CDC111DBDAC6E00CCA448 /* ImageEditComponentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC101DBDAC6E00CCA448 /* ImageEditComponentTests.m */; };
 		8A1CDC1C1DBDAC6E00CCA448 /* ImageEditComponentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC1B1DBDAC6E00CCA448 /* ImageEditComponentUITests.m */; };
+		8A1CDC331DBDAF7F00CCA448 /* TuSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC2B1DBDAF7F00CCA448 /* TuSDK.strings */; };
+		8A1CDC341DBDAF7F00CCA448 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC2F1DBDAF7F00CCA448 /* README.md */; };
+		8A1CDC351DBDAF7F00CCA448 /* TuSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1CDC301DBDAF7F00CCA448 /* TuSDK.framework */; };
+		8A1CDC361DBDAF7F00CCA448 /* TuSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC311DBDAF7F00CCA448 /* TuSDK.podspec */; };
+		8A1CDC371DBDAF7F00CCA448 /* TuSDKGeeV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1CDC321DBDAF7F00CCA448 /* TuSDKGeeV1.framework */; };
+		8A1CDC391DBDAFCF00CCA448 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1CDC381DBDAFCF00CCA448 /* GPUImage.framework */; };
+		8A1CDC3B1DBDB05D00CCA448 /* TuSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC3A1DBDB05D00CCA448 /* TuSDK.bundle */; };
+		8A1CDC3F1DBDB42C00CCA448 /* SampleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,17 @@
 		8A1CDC171DBDAC6E00CCA448 /* ImageEditComponentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageEditComponentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1CDC1B1DBDAC6E00CCA448 /* ImageEditComponentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageEditComponentUITests.m; sourceTree = "<group>"; };
 		8A1CDC1D1DBDAC6E00CCA448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A1CDC2C1DBDAF7F00CCA448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TuSDK.strings; sourceTree = "<group>"; };
+		8A1CDC2D1DBDAF7F00CCA448 /* En */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = En; path = En.lproj/TuSDK.strings; sourceTree = "<group>"; };
+		8A1CDC2E1DBDAF7F00CCA448 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TuSDK.strings"; sourceTree = "<group>"; };
+		8A1CDC2F1DBDAF7F00CCA448 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8A1CDC301DBDAF7F00CCA448 /* TuSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDK.framework; sourceTree = "<group>"; };
+		8A1CDC311DBDAF7F00CCA448 /* TuSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TuSDK.podspec; sourceTree = "<group>"; };
+		8A1CDC321DBDAF7F00CCA448 /* TuSDKGeeV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TuSDKGeeV1.framework; sourceTree = "<group>"; };
+		8A1CDC381DBDAFCF00CCA448 /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUImage.framework; sourceTree = "<group>"; };
+		8A1CDC3A1DBDB05D00CCA448 /* TuSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TuSDK.bundle; sourceTree = "<group>"; };
+		8A1CDC3D1DBDB42C00CCA448 /* SampleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleBase.h; sourceTree = "<group>"; };
+		8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +77,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1CDC351DBDAF7F00CCA448 /* TuSDK.framework in Frameworks */,
+				8A1CDC371DBDAF7F00CCA448 /* TuSDKGeeV1.framework in Frameworks */,
+				8A1CDC391DBDAFCF00CCA448 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +123,7 @@
 		8A1CDBF51DBDAC6E00CCA448 /* ImageEditComponent */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CDC291DBDAF7F00CCA448 /* TuSDK-for-iOS-2.5.1 */,
 				8A1CDBF91DBDAC6E00CCA448 /* AppDelegate.h */,
 				8A1CDBFA1DBDAC6E00CCA448 /* AppDelegate.m */,
 				8A1CDBFC1DBDAC6E00CCA448 /* ViewController.h */,
@@ -138,6 +161,38 @@
 				8A1CDC1D1DBDAC6E00CCA448 /* Info.plist */,
 			);
 			path = ImageEditComponentUITests;
+			sourceTree = "<group>";
+		};
+		8A1CDC291DBDAF7F00CCA448 /* TuSDK-for-iOS-2.5.1 */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CDC3C1DBDB42600CCA448 /* Public */,
+				8A1CDC3A1DBDB05D00CCA448 /* TuSDK.bundle */,
+				8A1CDC381DBDAFCF00CCA448 /* GPUImage.framework */,
+				8A1CDC2A1DBDAF7F00CCA448 /* Localization */,
+				8A1CDC2F1DBDAF7F00CCA448 /* README.md */,
+				8A1CDC301DBDAF7F00CCA448 /* TuSDK.framework */,
+				8A1CDC311DBDAF7F00CCA448 /* TuSDK.podspec */,
+				8A1CDC321DBDAF7F00CCA448 /* TuSDKGeeV1.framework */,
+			);
+			path = "TuSDK-for-iOS-2.5.1";
+			sourceTree = "<group>";
+		};
+		8A1CDC2A1DBDAF7F00CCA448 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CDC2B1DBDAF7F00CCA448 /* TuSDK.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		8A1CDC3C1DBDB42600CCA448 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CDC3D1DBDB42C00CCA448 /* SampleBase.h */,
+				8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +262,7 @@
 				TargetAttributes = {
 					8A1CDBF21DBDAC6E00CCA448 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = D7XRQ8Z68E;
 						ProvisioningStyle = Automatic;
 					};
 					8A1CDC0B1DBDAC6E00CCA448 = {
@@ -228,6 +284,8 @@
 			knownRegions = (
 				en,
 				Base,
+				En,
+				"zh-Hant",
 			);
 			mainGroup = 8A1CDBEA1DBDAC6E00CCA448;
 			productRefGroup = 8A1CDBF41DBDAC6E00CCA448 /* Products */;
@@ -246,9 +304,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1CDC331DBDAF7F00CCA448 /* TuSDK.strings in Resources */,
 				8A1CDC061DBDAC6E00CCA448 /* LaunchScreen.storyboard in Resources */,
 				8A1CDC031DBDAC6E00CCA448 /* Assets.xcassets in Resources */,
+				8A1CDC3B1DBDB05D00CCA448 /* TuSDK.bundle in Resources */,
 				8A1CDC011DBDAC6E00CCA448 /* Main.storyboard in Resources */,
+				8A1CDC361DBDAF7F00CCA448 /* TuSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +335,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A1CDBFE1DBDAC6E00CCA448 /* ViewController.m in Sources */,
+				8A1CDC3F1DBDB42C00CCA448 /* SampleBase.m in Sources */,
 				8A1CDBFB1DBDAC6E00CCA448 /* AppDelegate.m in Sources */,
+				8A1CDC341DBDAF7F00CCA448 /* README.md in Sources */,
 				8A1CDBF81DBDAC6E00CCA448 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +388,16 @@
 				8A1CDC051DBDAC6E00CCA448 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8A1CDC2B1DBDAF7F00CCA448 /* TuSDK.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A1CDC2C1DBDAF7F00CCA448 /* Base */,
+				8A1CDC2D1DBDAF7F00CCA448 /* En */,
+				8A1CDC2E1DBDAF7F00CCA448 /* zh-Hant */,
+			);
+			name = TuSDK.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -422,8 +495,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D7XRQ8Z68E;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ImageEditComponent/TuSDK-for-iOS-2.5.1",
+				);
 				INFOPLIST_FILE = ImageEditComponent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.ImageEditComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -433,8 +514,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D7XRQ8Z68E;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ImageEditComponent/TuSDK-for-iOS-2.5.1",
+				);
 				INFOPLIST_FILE = ImageEditComponent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taobaichi.ImageEditComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

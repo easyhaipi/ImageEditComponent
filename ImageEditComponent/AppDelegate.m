@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+#import <TuSDKGeeV1/TuSDKGeeV1.h>
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    // 初始化SDK (请前往 http://tusdk.com 获取您的 APP 开发密钥)
+    [TuSDK initSdkWithAppKey:@"8ab2c179fe04546b-00-j4t3q1"];
+    [TuSDK setLogLevel:lsqLogLevelDEBUG];
+    
+    
     return YES;
 }
 
