@@ -8,9 +8,16 @@
 
 #import "ViewController.h"
 
-
+#import "CameraComponent.h"
+#import "EditMultipleComponent.h"
 #import <TuSDKGeeV1/TuSDKGeeV1.h>
 @interface ViewController ()<TuSDKFilterManagerDelegate>
+{
+    
+    CameraComponent*  cameraComponentSample;
+    EditMultipleComponent *multipleComponentSample;
+ 
+}
 @property (weak, nonatomic) IBOutlet UIImageView *resultImage;
 
 - (IBAction)doCamerAction:(UIButton *)sender;
@@ -47,8 +54,33 @@
 
 
 - (IBAction)doCamerAction:(UIButton *)sender {
+    
+    //相机组件范例
+        if (cameraComponentSample == nil)
+        {
+            cameraComponentSample = [CameraComponent sample];
+        }
+        cameraComponentSample.imageBlock = ^(UIImage *image){
+            self.resultImage.image = image;
+         
+        };
+        [cameraComponentSample showSampleWithController:self];
+    
 }
 
 - (IBAction)doPhotoAction:(UIButton *)sender {
+    
+    //照片美化实例
+    
+    if (multipleComponentSample == nil)
+    {
+        multipleComponentSample = [EditMultipleComponent sample];
+    }
+    multipleComponentSample.imageBlock = ^(UIImage *image){
+        self.resultImage.image = image;
+    
+    };
+    [multipleComponentSample showSampleWithController:self];
+    
 }
 @end

@@ -23,6 +23,8 @@
 		8A1CDC391DBDAFCF00CCA448 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1CDC381DBDAFCF00CCA448 /* GPUImage.framework */; };
 		8A1CDC3B1DBDB05D00CCA448 /* TuSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC3A1DBDB05D00CCA448 /* TuSDK.bundle */; };
 		8A1CDC3F1DBDB42C00CCA448 /* SampleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */; };
+		8A1CDC421DBDBC6300CCA448 /* CameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC411DBDBC6300CCA448 /* CameraComponent.m */; };
+		8A1CDC451DBDBCFE00CCA448 /* EditMultipleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC441DBDBCFE00CCA448 /* EditMultipleComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		8A1CDC3A1DBDB05D00CCA448 /* TuSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TuSDK.bundle; sourceTree = "<group>"; };
 		8A1CDC3D1DBDB42C00CCA448 /* SampleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleBase.h; sourceTree = "<group>"; };
 		8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleBase.m; sourceTree = "<group>"; };
+		8A1CDC401DBDBC6300CCA448 /* CameraComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraComponent.h; sourceTree = "<group>"; };
+		8A1CDC411DBDBC6300CCA448 /* CameraComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraComponent.m; sourceTree = "<group>"; };
+		8A1CDC431DBDBCFE00CCA448 /* EditMultipleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMultipleComponent.h; sourceTree = "<group>"; };
+		8A1CDC441DBDBCFE00CCA448 /* EditMultipleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMultipleComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,10 @@
 				8A1CDBFA1DBDAC6E00CCA448 /* AppDelegate.m */,
 				8A1CDBFC1DBDAC6E00CCA448 /* ViewController.h */,
 				8A1CDBFD1DBDAC6E00CCA448 /* ViewController.m */,
+				8A1CDC431DBDBCFE00CCA448 /* EditMultipleComponent.h */,
+				8A1CDC441DBDBCFE00CCA448 /* EditMultipleComponent.m */,
+				8A1CDC401DBDBC6300CCA448 /* CameraComponent.h */,
+				8A1CDC411DBDBC6300CCA448 /* CameraComponent.m */,
 				8A1CDBFF1DBDAC6E00CCA448 /* Main.storyboard */,
 				8A1CDC021DBDAC6E00CCA448 /* Assets.xcassets */,
 				8A1CDC041DBDAC6E00CCA448 /* LaunchScreen.storyboard */,
@@ -334,10 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1CDC451DBDBCFE00CCA448 /* EditMultipleComponent.m in Sources */,
 				8A1CDBFE1DBDAC6E00CCA448 /* ViewController.m in Sources */,
 				8A1CDC3F1DBDB42C00CCA448 /* SampleBase.m in Sources */,
 				8A1CDBFB1DBDAC6E00CCA448 /* AppDelegate.m in Sources */,
 				8A1CDC341DBDAF7F00CCA448 /* README.md in Sources */,
+				8A1CDC421DBDBC6300CCA448 /* CameraComponent.m in Sources */,
 				8A1CDBF81DBDAC6E00CCA448 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
