@@ -1,7 +1,8 @@
 # ImageEditComponent
 一款基于涂图SDK和趣拍的图片视频编辑处理的demo
+
 一、涂图SDK的手动接入使用(https://tusdk.com/docs/ios/get-started)
-涂图SDK  要注意的事项
+
 1、获取相册编辑结果图片
 
 使用 TuSDK 的图片编辑组件，可以通过设置不同的属性以方便管理编辑结果及输出方式。
@@ -532,5 +533,3 @@
 
 二、趣拍SDK的手动接入使用(http://docs.qupaicloud.com/119.html)
 跟着文档就可以搭建自己的应用服务
-
-
