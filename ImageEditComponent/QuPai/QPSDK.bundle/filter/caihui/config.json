@@ -1,0 +1,71 @@
+{
+  "icon": "icon.png",
+  "musicIcon": "icon_music.png",
+  "width": 640,
+  "musicName": "",
+  "animations": [
+    {
+      "frames": [
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 0,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        },
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 449,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        }
+      ],
+      "name": "main"
+    }
+  ],
+  "name": "彩绘",
+  "height": 640,
+  "version": 2,
+  "effects": [
+    {
+      "video": "main",
+      "src": "",
+      "eid": 1
+    },
+    {
+      "filterName": "caihui",
+      "src": "1",
+      "eid": 2
+    }
+  ],
+  "music": "music.mp3",
+  "filters": [
+    {
+      "images": [
+        "color.png"
+      ],
+      "fragment": "\nprecision mediump float;\n\n    varying vec2 textureCoordinate;\n\n    uniform sampler2D inputImageTexture;\n\n    void main(void)\n    {\n        int width = 320;\n        int height = 480;\n        vec4 grayMat = vec4(0.299,0.587,0.114,0.0);\n        vec4 color = texture2D(inputImageTexture,textureCoordinate);\n        float g = dot(color,grayMat);\n        float tx;\n        float ty;\n        tx = 1.0 / float(width);\n        ty = 1.0 / float(height);\n        vec4 tmp = vec4(0.0);\n        vec4 c1;\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(-1.0*tx,-1.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(0.0*tx,-1.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate + vec2(1.0*tx,-1.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(-1.0*tx,0.0*ty));\n        tmp = max(tmp,c1);\n        c1 = color;\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(1.0*tx,0.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(-1.0*tx,1.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(0.0*tx,1.0*ty));\n        tmp = max(tmp,c1);\n        c1 = texture2D(inputImageTexture,textureCoordinate+ vec2(1.0*tx,1.0*ty));\n        tmp = max(tmp,c1);\n        vec4 dd;\n        float threshold = 57.0/255.0;\n        dd = color/tmp;\n        g = clamp(g,0.0,threshold);\n        float ratio = g/threshold;\n        dd = ratio*dd + (1.0 - ratio)*color;\n        g = dot(grayMat,dd);\n        g = min(1.0,max(0.0,g));\n        vec4 yiq;\n        mat3 rgb2yiq = mat3(0.299,0.596,0.211,0.587,-0.275,-0.532,0.114,-0.322,0.312);\n        yiq.rgb = rgb2yiq*color.rgb;\n        yiq.r =  max(min(pow(g, 2.7), 1.0),0.0);\n        vec4 rgb;\n        mat3 yiq2rgb = mat3(1.0,1.0,1.0,0.956,-0.272,-1.106,0.621,-1.703,0.0);\n        rgb.rgb = yiq2rgb*yiq.rgb;\n        rgb.a = 1.0;\n        gl_FragColor = rgb;\n    }\n",
+      "name": "caihui"
+    }
+  ],
+  "time": [
+    0
+  ]
+}

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import <TuSDKGeeV1/TuSDKGeeV1.h>
+
+#import <QPSDK/QPSDK.h>
 @interface AppDelegate ()
 
 @end
@@ -22,6 +24,16 @@
     [TuSDK initSdkWithAppKey:@"8ab2c179fe04546b-00-j4t3q1"];
     [TuSDK setLogLevel:lsqLogLevelDEBUG];
     
+    
+    
+    
+    //趣拍
+    [[QPAuth shared] registerAppWithKey:@"20cd6bc4b0de86a" secret:@"d5caf2d7c3f24f4b9bcd944999be65af" space:@"baichiwang" success:^(NSString *accessToken) {
+        NSLog(@"access token : %@", accessToken);
+          [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"accessToken"];
+    } failure:^(NSError *error) {
+        NSLog(@"failed : %@", error.description);
+    }];
     
     return YES;
 }

@@ -1,0 +1,71 @@
+{
+  "icon": "icon.png",
+  "musicIcon": "icon_music.png",
+  "width": 640,
+  "musicName": "",
+  "animations": [
+    {
+      "frames": [
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 0,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        },
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 449,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        }
+      ],
+      "name": "main"
+    }
+  ],
+  "name": "贝蒂",
+  "height": 640,
+  "version": 2,
+  "effects": [
+    {
+      "video": "main",
+      "src": "",
+      "eid": 1
+    },
+    {
+      "filterName": "beidi",
+      "src": "1",
+      "eid": 2
+    }
+  ],
+  "music": "music.mp3",
+  "filters": [
+    {
+      "images": [
+        "color.png"
+      ],
+      "fragment": "\nprecision highp float;\n     varying highp vec2 textureCoordinate;\n     varying highp vec2 textureCoordinate2;\n\n     uniform sampler2D inputImageTexture;\n     uniform sampler2D inputImageTexture2;\n\n     const mediump vec3 clColor1=vec3(0.0235,0.0706,0.196);\n\n    #define BlendExclusion(base, blend)     (base + blend - 2.0 * base * blend)\n\n     //Selective Color Red\n     mediump vec3 getSelectiveColorRed(mediump vec3 baseColor,mediump float iMin,mediump float iMid,mediump float iMax,mediump vec3 disCMY, mediump float Cv,mediump float Mv,mediump float Yv,mediump float Bv,mediump float isRelative)\n    {\n        mediump float r;\n        mediump float g;\n        mediump float b;\n        mediump vec3 result=disCMY;\n        if ((baseColor.r>baseColor.g)&&(baseColor.r>baseColor.b))\n        {\n            mediump float iLim=iMax-iMid;\n\n            //follow is same\n            mediump float iInc;\n            mediump float iDec;\n            mediump float iValue;\n            mediump float disC=disCMY.x;\n            mediump float disM=disCMY.y;\n            mediump float disY=disCMY.z;\n\n            if (Cv!=0.0)\n            {\n                iInc=(iLim*baseColor.r);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.r>0.5))\n                    iInc=iDec;\n                iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                disC=disC+iValue;\n            }\n\n            if (Mv!=0.0)\n            {\n                iInc=(iLim*baseColor.g);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.g>0.5))\n                    iInc=iDec;\n                iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                disM=disM+iValue;\n            }\n\n            if (Yv!=0.0)\n            {\n                iInc=iLim*baseColor.b;\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.b>0.5))\n                    iInc=iDec;\n                iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                disY=disY+iValue;\n            }\n\n            result=vec3(disC,disM,disY);\n        }\n\n        return result;\n    }\n\n     //Selective Color Yellow\n     mediump vec3 getSelectiveColorYellow(mediump vec3 baseColor,mediump float iMin,mediump float iMid,mediump float iMax,mediump vec3 disCMY, mediump float Cv,mediump float Mv,mediump float Yv,mediump float Bv,mediump float isRelative)\n    {\n        mediump float r;\n        mediump float g;\n        mediump float b;\n        mediump vec3 result=disCMY;\n        if ((baseColor.b<baseColor.g)&&(baseColor.b<baseColor.r))\n        {\n            mediump float iLim=iMid-iMin;\n\n            //follow is same\n            mediump float iInc;\n            mediump float iDec;\n            mediump float iValue;\n            mediump float disC=disCMY.x;\n            mediump float disM=disCMY.y;\n            mediump float disY=disCMY.z;\n\n            if (Cv!=0.0)\n            {\n                iInc=(iLim*baseColor.r);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.r>0.5))\n                    iInc=iDec;\n                iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                disC=disC+iValue;\n            }\n\n            if (Mv!=0.0)\n            {\n                iInc=(iLim*baseColor.g);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.g>0.5))\n                    iInc=iDec;\n                iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                disM=disM+iValue;\n            }\n\n            if (Yv!=0.0)\n            {\n                iInc=iLim*baseColor.b;\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.b>0.5))\n                    iInc=iDec;\n                iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                disY=disY+iValue;\n            }\n\n            result=vec3(disC,disM,disY);\n        }\n\n        return result;\n    }\n\n     //8.Selective Color Gray\n     mediump vec3 getSelectiveColorGray(mediump vec3 baseColor,mediump float iMin,mediump float iMid,mediump float iMax,mediump vec3 disCMY, mediump float Cv,mediump float Mv,mediump float Yv,mediump float Bv,mediump float isRelative)\n    {\n        mediump float r;\n        mediump float g;\n        mediump float b;\n        mediump vec3 result=disCMY;\n\n        if (((baseColor.r==0.0)&&(baseColor.g==0.0)&&(baseColor.b==0.0)||(baseColor.r==1.0)&&(baseColor.g==1.0)&&(baseColor.b==1.0)))\n        {\n            mediump float iLim=abs(1.0-(abs(iMax-0.5)+abs(iMin-0.5)));\n\n            //follow is same\n            mediump float iInc;\n            mediump float iDec;\n            mediump float iValue;\n            mediump float disC=disCMY.x;\n            mediump float disM=disCMY.y;\n            mediump float disY=disCMY.z;\n\n            if (Cv!=0.0)\n            {\n                iInc=(iLim*baseColor.r);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.r>0.5))\n                    iInc=iDec;\n                iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                disC=disC+iValue;\n            }\n\n            if (Mv!=0.0)\n            {\n                iInc=(iLim*baseColor.g);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.g>0.5))\n                    iInc=iDec;\n                iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                disM=disM+iValue;\n            }\n\n            if (Yv!=0.0)\n            {\n                iInc=iLim*baseColor.b;\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.b>0.5))\n                    iInc=iDec;\n                iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                disY=disY+iValue;\n            }\n\n            result=vec3(disC,disM,disY);\n        }\n\n        return result;\n    }\n\n     //9.Selective Color Black\n     mediump vec3 getSelectiveColorBlack(mediump vec3 baseColor,mediump float iMin,mediump float iMid,mediump float iMax,mediump vec3 disCMY, mediump float Cv,mediump float Mv,mediump float Yv,mediump float Bv,mediump float isRelative)\n    {\n        mediump float r;\n        mediump float g;\n        mediump float b;\n        mediump vec3 result=disCMY;\n\n        if ((baseColor.r<0.5)&&(baseColor.g<0.5)&&(baseColor.b<0.5))\n        {\n            mediump float iLim=(0.5-iMax)*2.0;\n\n            //follow is same\n            mediump float iInc;\n            mediump float iDec;\n            mediump float iValue;\n            mediump float disC=disCMY.x;\n            mediump float disM=disCMY.y;\n            mediump float disY=disCMY.z;\n\n            if (Cv!=0.0)\n            {\n                iInc=(iLim*baseColor.r);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.r>0.5))\n                    iInc=iDec;\n                iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                disC=disC+iValue;\n            }\n\n            if (Mv!=0.0)\n            {\n                iInc=(iLim*baseColor.g);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.g>0.5))\n                    iInc=iDec;\n                iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                disM=disM+iValue;\n            }\n\n            if (Yv!=0.0)\n            {\n                iInc=iLim*baseColor.b;\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.b>0.5))\n                    iInc=iDec;\n                iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                disY=disY+iValue;\n            }\n\n            result=vec3(disC,disM,disY);\n        }\n\n        return result;\n    }\n\n     //5.Selective Color blue\n     mediump vec3 getSelectiveColorBlue(mediump vec3 baseColor,mediump float iMin,mediump float iMid,mediump float iMax,mediump vec3 disCMY, mediump float Cv,mediump float Mv,mediump float Yv,mediump float Bv,mediump float isRelative)\n    {\n        mediump float r;\n        mediump float g;\n        mediump float b;\n        mediump vec3 result=disCMY;\n\n        if ((baseColor.b>baseColor.g)&&(baseColor.b>baseColor.r))\n        {\n            mediump float iLim=iMax-iMid;\n\n            //follow is same\n            mediump float iInc;\n            mediump float iDec;\n            mediump float iValue;\n            mediump float disC=disCMY.x;\n            mediump float disM=disCMY.y;\n            mediump float disY=disCMY.z;\n\n            if (Cv!=0.0)\n            {\n                iInc=(iLim*baseColor.r);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.r>0.5))\n                    iInc=iDec;\n                iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                disC=disC+iValue;\n            }\n\n            if (Mv!=0.0)\n            {\n                iInc=(iLim*baseColor.g);\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.g>0.5))\n                    iInc=iDec;\n                iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                disM=disM+iValue;\n            }\n\n            if (Yv!=0.0)\n            {\n                iInc=iLim*baseColor.b;\n                iDec=iLim-iInc;\n                if ((isRelative>0.0)&&(baseColor.b>0.5))\n                    iInc=iDec;\n                iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                disY=disY+iValue;\n            }\n\n            result=vec3(disC,disM,disY);\n        }\n\n        return result;\n    }\n\n     void main()\n    {\n        mediump vec3 clB;\n        mediump vec3 clC;\n        mediump vec3 clD;\n        mediump vec3 clE;\n        mediump vec3 clA=texture2D(inputImageTexture, textureCoordinate).rgb;\n\n        //1.\n        clB=BlendExclusion(clA,clColor1);\n\n        //2\n        mediump vec3 disCMY;\n        mediump vec3 baseColor;\n        mediump float iMin;\n        mediump float iMid;\n        mediump float iMax;\n        mediump float isRelative;\n        baseColor=clB;\n        disCMY=vec3(0.0,0.0,0.0);\n        isRelative=1.0;   //true--1.0   false--0.0\n        iMin=min(baseColor.r,min(baseColor.g,baseColor.b));\n        iMax=max(baseColor.r,max(baseColor.g,baseColor.b));\n        iMid=iMin;\n        if ((baseColor.r>iMin)&&(baseColor.r<iMax)) iMid=baseColor.r;\n        else\n            if ((baseColor.g>iMin)&&(baseColor.g<iMax)) iMid=baseColor.g;\n            else\n                if ((baseColor.b>iMin)&&(baseColor.b<iMax)) iMid=baseColor.b;\n\n        disCMY=getSelectiveColorRed(baseColor,iMin,iMid,iMax,disCMY,-1.0,-0.6,-0.6,0.0,isRelative);\n        disCMY=getSelectiveColorYellow(baseColor,iMin,iMid,iMax,disCMY,-0.    ,-0.62,-1.0,0.0,isRelative);\n        disCMY=getSelectiveColorBlue(baseColor,iMin,iMid,iMax,disCMY,-0.15,1.0,1.0,0.0,isRelative);\n        disCMY=getSelectiveColorGray(baseColor,iMin,iMid,iMax,disCMY,-0.12,-0.06,0.0,0.0,isRelative);\n        disCMY=getSelectiveColorBlack(baseColor,iMin,iMid,iMax,disCMY,-0. ,0.04,-0.05,0.0,isRelative);\n\n        clC.r=clamp(baseColor.r-disCMY.x,0.0,1.0);\n        clC.g=clamp(baseColor.g-disCMY.y,0.0,1.0);\n        clC.b=clamp(baseColor.b-disCMY.z,0.0,1.0);\n\n        //3\n        clD.r=texture2D(inputImageTexture2,vec2(clC.r,0.5)).r;\n        clD.g=texture2D(inputImageTexture2,vec2(clC.g,0.5)).g;\n        clD.b=texture2D(inputImageTexture2,vec2(clC.b,0.5)).b;\n\n        gl_FragColor=vec4(clD,1.0);\n    }\n",
+      "name": "beidi"
+    }
+  ],
+  "time": [
+    0
+  ]
+}

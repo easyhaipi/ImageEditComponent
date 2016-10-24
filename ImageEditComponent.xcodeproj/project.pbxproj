@@ -25,6 +25,11 @@
 		8A1CDC3F1DBDB42C00CCA448 /* SampleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */; };
 		8A1CDC421DBDBC6300CCA448 /* CameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC411DBDBC6300CCA448 /* CameraComponent.m */; };
 		8A1CDC451DBDBCFE00CCA448 /* EditMultipleComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CDC441DBDBCFE00CCA448 /* EditMultipleComponent.m */; };
+		8A1CDC491DBDE35A00CCA448 /* QPSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC471DBDE35A00CCA448 /* QPSDK.bundle */; };
+		8A1CDC4A1DBDE35A00CCA448 /* QPSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1CDC481DBDE35A00CCA448 /* QPSDK.framework */; };
+		8A1CDC671DBDEAB300CCA448 /* music in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC641DBDEAB300CCA448 /* music */; };
+		8A1CDC701DBDEB0900CCA448 /* music1.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC6E1DBDEB0900CCA448 /* music1.json */; };
+		8A1CDC711DBDEB0900CCA448 /* music2.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A1CDC6F1DBDEB0900CCA448 /* music2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,11 @@
 		8A1CDC411DBDBC6300CCA448 /* CameraComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraComponent.m; sourceTree = "<group>"; };
 		8A1CDC431DBDBCFE00CCA448 /* EditMultipleComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMultipleComponent.h; sourceTree = "<group>"; };
 		8A1CDC441DBDBCFE00CCA448 /* EditMultipleComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMultipleComponent.m; sourceTree = "<group>"; };
+		8A1CDC471DBDE35A00CCA448 /* QPSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QPSDK.bundle; sourceTree = "<group>"; };
+		8A1CDC481DBDE35A00CCA448 /* QPSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QPSDK.framework; sourceTree = "<group>"; };
+		8A1CDC641DBDEAB300CCA448 /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
+		8A1CDC6E1DBDEB0900CCA448 /* music1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music1.json; sourceTree = "<group>"; };
+		8A1CDC6F1DBDEB0900CCA448 /* music2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = music2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 			files = (
 				8A1CDC351DBDAF7F00CCA448 /* TuSDK.framework in Frameworks */,
 				8A1CDC371DBDAF7F00CCA448 /* TuSDKGeeV1.framework in Frameworks */,
+				8A1CDC4A1DBDE35A00CCA448 /* QPSDK.framework in Frameworks */,
 				8A1CDC391DBDAFCF00CCA448 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +140,10 @@
 		8A1CDBF51DBDAC6E00CCA448 /* ImageEditComponent */ = {
 			isa = PBXGroup;
 			children = (
+				8A1CDC6E1DBDEB0900CCA448 /* music1.json */,
+				8A1CDC6F1DBDEB0900CCA448 /* music2.json */,
+				8A1CDC641DBDEAB300CCA448 /* music */,
+				8A1CDC461DBDE35A00CCA448 /* QuPai */,
 				8A1CDC291DBDAF7F00CCA448 /* TuSDK-for-iOS-2.5.1 */,
 				8A1CDBF91DBDAC6E00CCA448 /* AppDelegate.h */,
 				8A1CDBFA1DBDAC6E00CCA448 /* AppDelegate.m */,
@@ -203,6 +218,15 @@
 				8A1CDC3E1DBDB42C00CCA448 /* SampleBase.m */,
 			);
 			path = Public;
+			sourceTree = "<group>";
+		};
+		8A1CDC461DBDE35A00CCA448 /* QuPai */ = {
+			isa = PBXGroup;
+			children = (
+				8A1CDC471DBDE35A00CCA448 /* QPSDK.bundle */,
+				8A1CDC481DBDE35A00CCA448 /* QPSDK.framework */,
+			);
+			path = QuPai;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,9 +341,13 @@
 				8A1CDC331DBDAF7F00CCA448 /* TuSDK.strings in Resources */,
 				8A1CDC061DBDAC6E00CCA448 /* LaunchScreen.storyboard in Resources */,
 				8A1CDC031DBDAC6E00CCA448 /* Assets.xcassets in Resources */,
+				8A1CDC491DBDE35A00CCA448 /* QPSDK.bundle in Resources */,
+				8A1CDC711DBDEB0900CCA448 /* music2.json in Resources */,
 				8A1CDC3B1DBDB05D00CCA448 /* TuSDK.bundle in Resources */,
 				8A1CDC011DBDAC6E00CCA448 /* Main.storyboard in Resources */,
+				8A1CDC671DBDEAB300CCA448 /* music in Resources */,
 				8A1CDC361DBDAF7F00CCA448 /* TuSDK.podspec in Resources */,
+				8A1CDC701DBDEB0900CCA448 /* music1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +540,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ImageEditComponent/TuSDK-for-iOS-2.5.1",
+					"$(PROJECT_DIR)/ImageEditComponent/QuPai",
 				);
 				INFOPLIST_FILE = ImageEditComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
@@ -531,6 +560,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ImageEditComponent/TuSDK-for-iOS-2.5.1",
+					"$(PROJECT_DIR)/ImageEditComponent/QuPai",
 				);
 				INFOPLIST_FILE = ImageEditComponent/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;

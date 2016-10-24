@@ -1,0 +1,71 @@
+{
+  "icon": "icon.png",
+  "musicIcon": "icon_music.png",
+  "width": 640,
+  "musicName": "",
+  "animations": [
+    {
+      "frames": [
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 0,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        },
+        {
+          "a": 0.0,
+          "fy": 0.0,
+          "fh": 480.0,
+          "track": "a",
+          "fx": 0.0,
+          "t": 449,
+          "x": 240.0,
+          "cx": 240.0,
+          "y": 240.0,
+          "h": 1.0,
+          "w": 1.0,
+          "cy": 240.0,
+          "fw": 480.0
+        }
+      ],
+      "name": "main"
+    }
+  ],
+  "name": "千颂伊",
+  "height": 640,
+  "version": 2,
+  "effects": [
+    {
+      "video": "main",
+      "src": "",
+      "eid": 1
+    },
+    {
+      "filterName": "qiansongyi",
+      "src": "1",
+      "eid": 2
+    }
+  ],
+  "music": "music.mp3",
+  "filters": [
+    {
+      "images": [
+        "color.png"
+      ],
+      "fragment": "\nprecision highp float;\n         varying highp vec2 textureCoordinate;\n         varying highp vec2 textureCoordinate2;\n         uniform sampler2D inputImageTexture;\n         uniform sampler2D inputImageTexture2;\n         vec4 MTSelectiveColor(vec4 baseColor,float iMin, float iMid, float iMax, vec4 disCMY, float Cv, float Mv, float Yv,int nIndex)\n        {\n            int isDo = 0;\n            float iLim;\n            if (nIndex == 1)//red\n            {\n                if ((baseColor.r>baseColor.g)&&(baseColor.r>baseColor.b))\n                {\n                    isDo = 1;\n                    iLim=(iMax-iMid);\n                }\n            }\n            else if (nIndex == 3 )//blue\n            {\n                if ((baseColor.b>baseColor.g)&&(baseColor.b>baseColor.r))\n                {\n                    isDo = 1;\n                    iLim=(iMax-iMid);\n                }\n            }\n            else if (nIndex == 4)//yello\n            {\n                if ((baseColor.b<baseColor.g)&&(baseColor.b<baseColor.r))\n                {\n                    isDo = 1;\n                    iLim = (iMid-iMin);\n                }\n            }\n            else if(nIndex == 5)//cyan\n            {\n                if ((baseColor.r<baseColor.g)&&(baseColor.r<baseColor.b))\n                {\n                    isDo = 1;\n                    iLim=iMid-iMin;\n                }\n            }\n            else if (nIndex == 7) //white\n            {\n                if ((baseColor.r>0.5)&&(baseColor.g>0.5)&&(baseColor.b>0.5))\n                {\n                    isDo = 1;\n                    iLim=(iMin-0.5)*2.0;\n                }\n            }\n            if (isDo == 1)\n            {\n                float nTotal = iLim;\n                //follow is same\n                float iInc;float iDec;float iValue;\n                if (Cv!=0.0)\n                {\n                    iInc=(iLim*baseColor.r);\n                    iDec=nTotal-iInc;\n                    if (baseColor.r>0.5)\n                        iInc=iDec;\n                    iValue=Cv>0.0?(iInc*Cv):(iDec*Cv);\n                    disCMY.r += iValue;\n                }\n                if (Mv!=0.0)\n                {\n                    iInc=(iLim*baseColor.g);\n                    iDec=nTotal-iInc;\n                    if (baseColor.g>0.5)\n                        iInc=iDec;\n                    iValue=Mv>0.0?(iInc*Mv):(iDec*Mv);\n                    disCMY.g += iValue;\n                }\n                if (Yv!=0.0)\n                {\n                    iInc=iLim*baseColor.b;\n                    iDec=nTotal-iInc;\n                    if (baseColor.b>0.5)\n                        iInc=iDec;\n                    iValue=Yv>0.0?(iInc*Yv):(iDec*Yv);\n                    disCMY.b += iValue;\n                }\n            }\n            return disCMY;\n        }\n         vec4 ABaoColor(vec4 oral)\n         {\n             float fL;float fA;float fBLab;\n             float fR = oral.r;float fG = oral.g;float fB = oral.b;\n             float fX = 0.431 * fR + 0.342 * fG + 0.178 * fB;\n             float fY = 0.222 * fR + 0.707 * fG + 0.071 * fB;\n             float fZ = 0.020 * fR + 0.130 * fG + 0.939 * fB;\n             float tx = fX / 0.951;float ty = fY;float tz = fZ / 1.089;\n             float fTx;float fTy;float fTz;float fLight;\n             if (ty > 0.008856)\n             {\n                 fTy = pow(ty, 0.333333);\n                 fLight = 116.0 * fTy - 16.0;\n             }\n             else\n             {\n                 fTy = 7.78 * ty + 0.137931;\n                 fLight = 903.3 * ty;\n             }\n             fTx = (tx > 0.008856) ? pow(tx, 0.333333) : 7.78 * tx + 0.137931;\n             fTz = (tz > 0.008856) ? pow(tz, 0.333333) : 7.78 * tz + 0.137931;\n             fL = fLight * 1.0038;\n             fA = (fTx - fTy) * 500.0 ;\n             fBLab = fA;\n             float fHa;float fHb;float fSqyyn;\n             float fP = (fL + 16.0) / 116.0;\n             float fYyn = fP * fP * fP;\n             if (fYyn > 0.008856)\n             {\n                 fY = fYyn;\n                 fHa = (fP + fA / 500.0);\n\n                 fX = 0.951 * fHa * fHa * fHa;\n                 fHb = (fP - fBLab / 200.0);\n                 fZ = 1.089 * fHb * fHb * fHb;\n             }\n             else\n             {\n                 fY = fL / 903.3;\n                 fSqyyn = pow(fL / 903.3, 0.333333);\n                 fHa = fA / 500.0 / 7.787 + fSqyyn;\n\n                 fX = 0.951 * fHa * fHa * fHa;\n                 fHb = fSqyyn - fBLab /200. / 7.787;\n                 fZ = 1.089 * fHb * fHb * fHb;\n             }\n             fR =  3.063 * fX - 1.393 * fY - 0.476 * fZ;\n             fG = -0.969 * fX + 1.876 * fY + 0.042 * fZ;\n             fB  =  0.068 * fX - 0.229 * fY + 1.069 * fZ;\n             fR = max(0.0, min(1.0, fR));\n             fG = max(0.0, min(1.0, fG));\n             fB = max(0.0, min(1.0, fB));\n             oral.r = fR;\n             oral.g = fG;\n             oral.b = fB;\n             oral.r = texture2D( inputImageTexture2, vec2(oral.r,0.5)).r;\n             oral.g = texture2D( inputImageTexture2, vec2(oral.g,0.5)).g;\n             oral.b = texture2D( inputImageTexture2, vec2(oral.b,0.5)).b;\n             mediump vec4 disCMY;\n             mediump vec4 baseColor;\n             mediump float iMin;\n             mediump float iMid;\n             mediump float iMax;\n             mediump float isRelative;\n             baseColor= oral;\n             disCMY=vec4(0.0);\n    iMin=min(baseColor.r,min(baseColor.g,baseColor.b));\n    iMax=max(baseColor.r,max(baseColor.g,baseColor.b));\n    iMid=iMin;\n             if ((baseColor.r>iMin)&&(baseColor.r<iMax)) iMid=baseColor.r;\n             else\n                 if ((baseColor.g>iMin)&&(baseColor.g<iMax)) iMid=baseColor.g;\n                 else\n                     if ((baseColor.b>iMin)&&(baseColor.b<iMax)) iMid=baseColor.b;   disCMY=MTSelectiveColor(baseColor,iMin,iMid,iMax,disCMY,0.0,0.0,0.5,5);  disCMY=MTSelectiveColor(baseColor,iMin,iMid,iMax,disCMY,0.0,-1.0,1.0,3);\n\n             oral.r=clamp(baseColor.r-disCMY.x,0.0,1.0);\n             oral.g=clamp(baseColor.g-disCMY.y,0.0,1.0);\n             oral.b=clamp(baseColor.b-disCMY.z,0.0,1.0);\n            return oral;\n         }\n         void main()\n         {\n             mediump vec4 oralData =texture2D(inputImageTexture, textureCoordinate);\n             oralData = ABaoColor(oralData);\n             gl_FragColor = oralData;\n         }\n",
+      "name": "qiansongyi"
+    }
+  ],
+  "time": [
+    0
+  ]
+}

@@ -27,16 +27,32 @@
                                     <action selector="doCamerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sow-Ub-9gh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-fj-QcR">
+                                <state key="normal" title="相册组件"/>
+                                <connections>
+                                    <action selector="doPhotoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B5O-Mk-7d8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4os-3b-lob">
+                                <frame key="frameInset" minX="79" minY="527" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="播放刚上传短视频"/>
+                                <connections>
+                                    <action selector="playVideoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="70X-lA-Jwq"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CqO-Vo-CUY">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="B08-ux-kZ3"/>
                                     <constraint firstAttribute="height" constant="240" id="Ume-4g-jEd"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-fj-QcR">
-                                <state key="normal" title="相册组件"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV7-3j-dEo">
+                                <frame key="frameInset" minX="67" minY="475" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="录制短视频"/>
                                 <connections>
-                                    <action selector="doPhotoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B5O-Mk-7d8"/>
+                                    <action selector="createRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hex-An-n9S"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="图片编辑demo" id="sCK-qK-jsT"/>
                     <connections>
+                        <outlet property="playButton" destination="4os-3b-lob" id="1Js-Pc-T97"/>
                         <outlet property="resultImage" destination="CqO-Vo-CUY" id="94n-jb-55e"/>
                     </connections>
                 </viewController>

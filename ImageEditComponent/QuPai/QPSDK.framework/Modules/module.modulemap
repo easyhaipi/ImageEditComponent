@@ -1,0 +1,6 @@
+framework module QPSDK {
+  umbrella header "QPSDK.h"
+
+  export *
+  module * { export * }
+}
